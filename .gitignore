@@ -5,6 +5,7 @@ vendor/
 # Ignore system files
 .DS_Store
 Thumbs.db
+.cache
 
 # Ignore environment files
 .env

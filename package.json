@@ -1,14 +1,16 @@
 {
-    "name": "qovery",
-    "version": "1.0.0",
-    "description": "website page",
-    "main": "index.js",
-    "scripts": {
-      "test": "echo \"Error: no test specified\" && exit 1"
-    },
-    "author": "Denys Holenko",
-    "license": "ISC",
-    "dependencies": {
-      "sass": "^1.74.1"
-    }
+  "name": "dwwm_qovery",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "parcel index.html",
+    "build": "parcel build/index.html"
+  },
+  "author": "Denys Holenko",
+  "license": "ISC",
+  "devDependencies": {
+    "parcel-bundler": "^1.12.5",
+    "sass": "^1.83.0"
   }
+}
