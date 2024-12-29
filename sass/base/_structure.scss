@@ -1,0 +1,21 @@
+@use "../abstracts/" as a;
+body {
+  background-color: aqua; //test
+}
+.container {
+  min-width: 320px;
+  margin: 0 auto;
+  background-color: rgb(222, 14, 94);
+ 
+  & > * {
+    padding-left: a.rem(10, 16);
+    padding-right: a.rem(10, 16);
+  }
+}
+
+header {
+  nav {
+    max-width: 1440px;
+    width: 100%;
+  }
+}

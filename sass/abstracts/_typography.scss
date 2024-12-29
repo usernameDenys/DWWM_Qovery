@@ -1,3 +1,25 @@
-//typography
-$title-desktop-size: rem(46, 16);
-$title-secondary-desktop-size: rem(32, 16);
+
+$font-hkGrotesk: "hkGrotesk";
+$font-SFUIText: "SFUIText";
+
+$hkGrotesk-extrabold: "hkgrotesk-extrabold";
+$hkGrotesk-bold: "hkgrotesk-bold";
+$hkGrotesk-semibold: "hkgrotesk-semibold";
+$SFUIText-regular: "sfuitext-regular";
+
+
+@mixin font-face($font-family, $file-name, $font-weight, $font-style: normal) {
+  @font-face {
+    font-family: $font-family;
+    src: url("../fonts/#{$file-name}.woff2") format("woff2"),
+      url("../fonts/#{$file-name}.woff") format("woff"),
+      url("../fonts/#{$file-name}.ttf") format("truetype");
+    font-weight: $font-weight;
+    font-style: $font-style;
+  }
+}
+
+@include font-face($font-hkGrotesk, $hkGrotesk-extrabold, 800);
+@include font-face($font-hkGrotesk, $hkGrotesk-bold, 700);
+@include font-face($font-hkGrotesk, $hkGrotesk-semibold, 600);
+@include font-face($font-SFUIText, $SFUIText-regular, 400);

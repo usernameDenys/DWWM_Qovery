@@ -1,0 +1,35 @@
+@font-face {
+  font-family: "hkGrotesk";
+  src: url("../fonts/hkgrotesk-extrabold.woff2") format("woff2"),
+    url("../fonts/hkgrotesk-extrabold.woff") format("woff"),
+    url("../fonts/hkgrotesk-extrabold.ttf") format("truetype");
+  font-weight: 800;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "hkGrotesk";
+  src: url("../fonts/hkgrotesk-bold.woff2") format("woff2"),
+    url("../fonts/hkgrotesk-bold.woff") format("woff"),
+    url("../fonts/hkgrotesk-bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "hkGrotesk";
+  src: url("../fonts/hkgrotesk-semibold.woff2") format("woff2"),
+    url("../fonts/hkgrotesk-semibold.woff") format("woff"),
+    url("../fonts/hkgrotesk-semibold.ttf") format("truetype");
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "SFUIText";
+  src: url("../fonts/sfuitext-regular.woff2") format("woff2"),
+    url("../fonts/sfuitext-regular.woff") format("woff"),
+    url("../fonts/sfuitext-regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
