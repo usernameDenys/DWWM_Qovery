@@ -1,14 +1,13 @@
-
-@mixin flex($flex-direction, $justify-content) {
+@mixin flex-justify($flex-direction, $justify-content) {
   display: flex;
   flex-direction: $flex-direction;
   justify-content: $justify-content;
 }
 
-@mixin center() {
+@mixin flex-align($flex-direction, $align-items) {
   display: flex;
-  justify-content: center;
-  align-items: center;
+  flex-direction: $flex-direction;
+  align-items: $align-items;
 }
 
 @mixin grid($rows, $columns, $gap) {
@@ -18,3 +17,14 @@
   gap: #{$gap};
 }
 
+@mixin unbuttonize {
+  // This removes styles added by default to button elements.
+  background-color: transparent;
+  border: none;
+  margin: 0;
+  padding: 0;
+  text-align: inherit;
+  font: inherit;
+  border-radius: 0;
+  appearance: none;
+}
