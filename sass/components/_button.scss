@@ -1,11 +1,12 @@
 @use "../abstracts/" as a;
 
 .btn-container {
-  margin: 0 auto;
-  padding-top: a.rem(20, 16);
-  grid-area: 3 / 1 / 4 / 2; 
-  
- 
+  max-width: 363px;
+  @include a.flex-justify(row, flex-start);
+  align-items: flex-start;
+  gap: a.rem(24, 16);
+  grid-area: 5 / 1 / 5 / 2;
+
   button {
     @include a.unbuttonize();
     font-family: a.$font-SFUIText, sans-serif;
@@ -22,26 +23,25 @@
 
     &.github-btn {
       background-color: a.$secondary;
+      transition: transform 500ms ease;
       svg {
         display: inline-block;
         vertical-align: middle;
-        margin-right: a.rem(3, 16);
       }
       &:hover {
-        transform: scale(1.05);
+        transform: scale(1.1);
       }
     }
 
     &.discord-btn {
       background-color: a.$btn-callToAction;
-      margin-top: a.rem(10, 16);
+      transition: transform 500ms ease;
       svg {
         display: inline-block;
         vertical-align: middle;
-        margin-right: a.rem(3, 16);
       }
-      &:hover {
-        transform: scale(1.05);
+      &:hover,:active {
+        transform: scale(1.1);
       }
     }
   }

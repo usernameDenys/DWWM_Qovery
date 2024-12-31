@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -19,11 +19,12 @@
   <body>
     <div class="container">
       <header>
-        <nav>
-          <img
-            src="./src/icons/Logotype.svg"
-            alt="Logo of the company Quovery" />
-        </nav>
+        <div class="wrapper">
+          <nav>
+            <img
+              src="./src/icons/Logotype.svg"
+              alt="Logo of the company Quovery" />
+          </nav>
           <div class="hero-info">
             <div class="title-container">
               <h1>Qovery Engine</h1>
@@ -78,110 +79,116 @@
               src="./src/img/primary-image.webp"
               alt="scheme that describes the technology" />
           </div>
+        </div>
       </header>
       <main>
-        <section class="info-section">
-          <h2>How does it work?</h2>
-          <p>
-            Qovery Engine is an open-source abstraction layer product that turns
-            easy apps deployment on AWS, GCP, Azure and others Cloud providers.
-            The Qovery Engine is coded in Rust and takes advantage of Terraform,
-            Helm, Kubectl, Docker to manage resources.
-          </p>
-          <img
-            src="./src/img/how does it work.webp"
-            alt="a scheme that describes the interaction of services" />
-        </section>
-        <section class="usage-section">
-          <div class="usage-info-container">
-            <h2>Usage</h2>
+        <div class="wrapper">
+          <section class="info-section">
+            <h2>How does it work?</h2>
             <p>
-              Initialize EKS (AWS Kubernetes) and ECR (AWS container registry)
-              on AWS
+              Qovery Engine is an open-source abstraction layer product that
+              turns easy apps deployment on AWS, GCP, Azure and others Cloud
+              providers. The Qovery Engine is coded in Rust and takes advantage
+              of Terraform, Helm, Kubectl, Docker to manage resources.
             </p>
-            <div class="code"></div>
-          </div>
-          <div class="usage-btn-container">
-            <button class="github-btn">
-              <svg
-                width="20"
-                height="19"
-                viewBox="0 0 20 19"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg">
-                <path
-                  d="M9.58278 0.564698C4.28827 0.562647 0 4.66831 0 9.73579C0 13.743 2.68258 17.1494 6.4185 18.4003C6.92161 18.5213 6.84454 18.1789 6.84454 17.9451V16.3557C3.9393 16.6818 3.82155 14.8402 3.62673 14.5326C3.2328 13.8886 2.3015 13.7246 2.57982 13.4169C3.24136 13.0909 3.91575 13.499 4.69719 14.6043C5.2624 15.4062 6.36497 15.2709 6.92375 15.1376C7.04579 14.6556 7.30698 14.225 7.66666 13.8907C4.65651 13.3739 3.40193 11.6143 3.40193 9.52251C3.40193 8.50737 3.7509 7.57427 4.436 6.82163C3.99925 5.58091 4.47668 4.5186 4.5409 4.36069C5.78478 4.25405 7.0779 5.21382 7.17852 5.2897C7.88503 5.10718 8.69216 5.01079 9.59563 5.01079C10.5034 5.01079 11.3127 5.11128 12.0256 5.29585C12.2675 5.11948 13.4664 4.29507 14.6225 4.39556C14.6846 4.55347 15.1513 5.59116 14.7403 6.81548C15.4339 7.57017 15.7872 8.51148 15.7872 9.52866C15.7872 11.6246 14.524 13.3862 11.5053 13.8948C11.7639 14.1383 11.9692 14.4288 12.1092 14.7492C12.2493 15.0697 12.3213 15.4136 12.321 15.761V18.0681C12.3382 18.2527 12.321 18.4352 12.6422 18.4352C16.4337 17.2109 19.1634 13.7799 19.1634 9.73784C19.1634 4.66831 14.873 0.564698 9.58278 0.564698Z"
-                  fill="white" />
-              </svg>
-              See more on Github
-            </button>
-            <button class="discord-btn">
-              <svg
-                width="17"
-                height="19"
-                viewBox="0 0 17 19"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg">
-                <path
-                  d="M10.7784 9.025C10.7784 9.6045 10.367 10.0795 9.84586 10.0795C9.33386 10.0795 8.91329 9.6045 8.91329 9.025C8.91329 8.4455 9.32472 7.9705 9.84586 7.9705C10.367 7.9705 10.7784 8.4455 10.7784 9.025ZM6.50872 7.9705C5.98757 7.9705 5.57615 8.4455 5.57615 9.025C5.57615 9.6045 5.99672 10.0795 6.50872 10.0795C7.02986 10.0795 7.44129 9.6045 7.44129 9.025C7.45043 8.4455 7.02986 7.9705 6.50872 7.9705ZM16.1636 1.957V19C13.8602 16.885 14.5969 17.5851 11.9213 15.0005L12.4059 16.758H2.03786C1.00472 16.758 0.163574 15.884 0.163574 14.801V1.957C0.163574 0.874 1.00472 0 2.03786 0H14.2893C15.3224 0 16.1636 0.874 16.1636 1.957ZM13.5579 10.963C13.5579 7.904 12.2413 5.4245 12.2413 5.4245C10.9247 4.3985 9.67215 4.427 9.67215 4.427L9.54415 4.579C11.0984 5.073 11.8207 5.7855 11.8207 5.7855C9.6489 4.54868 7.09772 4.54846 4.991 5.51C4.65272 5.6715 4.45157 5.7855 4.45157 5.7855C4.45157 5.7855 5.21043 5.035 6.85615 4.541L6.76472 4.427C6.76472 4.427 5.51215 4.3985 4.19557 5.4245C4.19557 5.4245 2.879 7.904 2.879 10.963C2.879 10.963 3.647 12.3405 5.66757 12.407C5.66757 12.407 6.00586 11.9795 6.28015 11.6185C5.119 11.2575 4.68015 10.4975 4.68015 10.4975C4.81465 10.5953 5.03643 10.7221 5.055 10.735C6.59822 11.633 8.79029 11.9272 10.7601 11.0675C11.0801 10.944 11.4367 10.7635 11.8116 10.507C11.8116 10.507 11.3544 11.286 10.1567 11.6375C10.431 11.9985 10.7601 12.407 10.7601 12.407C12.7807 12.3405 13.5579 10.963 13.5579 10.963Z"
-                  fill="white" />
-              </svg>
-              Join us on Discord
-            </button>
-          </div>
-        </section>
-        <div class="cards-section">
-          <article class="card-deploy">
-            <img src="./src/img/Deploy.webp" alt="abstract square" />
-            <h3>Deploy real world applications</h3>
-            <p>
-              Qovery Engine empowers you to deploy complex applications, such as
-              a backend, a frontend, and a database in a very simple way.
-              Servers, networking, security, all is done by the Engine for you.
-            </p>
-            <a href="#">See more</a>
-          </article>
-          <article class="card-resilience">
-            <img src="./src/img/Resiliency-img.webp" alt="abstract figures" />
-            <h3>Resilience is key</h3>
-            <p>
-              Qovery Engine knows when something goes wrong on the deployment of
-              your applications. Qovery Engine is built with resiliency in mind.
-              A transactional engine inspired by what is provided into ACID
-              databases has been developed at the heart of the product to
-              rollback on a consistent and working application version when
-              something goes wrong.
-            </p>
-            <a href="#">See more</a>
-          </article>
-          <article class="card-bestTools">
             <img
-              src="./src/img/On Top of Tools 1.webp"
-              alt="abstract figures" />
-            <h3>On top of the best tools</h3>
-            <p>
-              Qovery Engine does not reinvent the wheel. It takes advantage of
-              the best tools in the Cloud industry, such as Kubernetes,
-              Terraform, and Helm to manage the deployment of the infrastructure
-              and your applications.Servers, networking, security, all is done
-              by the Engine for you.
-            </p>
-            <a href="#">See more</a>
-          </article>
-          <article class="card-extensible">
-            <img src="./src/img/how does it work.webp" alt="abstract figures" />
-            <h3>Extensible</h3>
-            <p>
-              Qovery Engine is built to be highly extensible. Adding the support
-              of a Cloud provider or a Continuous Integration platform is as
-              simple as implementing a simple programmatic interface.
-            </p>
-            <a href="#">See more</a>
-          </article>
+              src="./src/img/how does it work.webp"
+              alt="a scheme that describes the interaction of services" />
+          </section>
+          <section class="usage-section">
+            <div class="usage-info-container">
+              <h2>Usage</h2>
+              <p>
+                Initialize EKS (AWS Kubernetes) and ECR (AWS container registry)
+                on AWS
+              </p>
+              <div class="code"></div>
+            </div>
+            <div class="usage-btn-container">
+              <button class="github-btn">
+                <svg
+                  width="20"
+                  height="19"
+                  viewBox="0 0 20 19"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg">
+                  <path
+                    d="M9.58278 0.564698C4.28827 0.562647 0 4.66831 0 9.73579C0 13.743 2.68258 17.1494 6.4185 18.4003C6.92161 18.5213 6.84454 18.1789 6.84454 17.9451V16.3557C3.9393 16.6818 3.82155 14.8402 3.62673 14.5326C3.2328 13.8886 2.3015 13.7246 2.57982 13.4169C3.24136 13.0909 3.91575 13.499 4.69719 14.6043C5.2624 15.4062 6.36497 15.2709 6.92375 15.1376C7.04579 14.6556 7.30698 14.225 7.66666 13.8907C4.65651 13.3739 3.40193 11.6143 3.40193 9.52251C3.40193 8.50737 3.7509 7.57427 4.436 6.82163C3.99925 5.58091 4.47668 4.5186 4.5409 4.36069C5.78478 4.25405 7.0779 5.21382 7.17852 5.2897C7.88503 5.10718 8.69216 5.01079 9.59563 5.01079C10.5034 5.01079 11.3127 5.11128 12.0256 5.29585C12.2675 5.11948 13.4664 4.29507 14.6225 4.39556C14.6846 4.55347 15.1513 5.59116 14.7403 6.81548C15.4339 7.57017 15.7872 8.51148 15.7872 9.52866C15.7872 11.6246 14.524 13.3862 11.5053 13.8948C11.7639 14.1383 11.9692 14.4288 12.1092 14.7492C12.2493 15.0697 12.3213 15.4136 12.321 15.761V18.0681C12.3382 18.2527 12.321 18.4352 12.6422 18.4352C16.4337 17.2109 19.1634 13.7799 19.1634 9.73784C19.1634 4.66831 14.873 0.564698 9.58278 0.564698Z"
+                    fill="white" />
+                </svg>
+                See more on Github
+              </button>
+              <button class="discord-btn">
+                <svg
+                  width="17"
+                  height="19"
+                  viewBox="0 0 17 19"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg">
+                  <path
+                    d="M10.7784 9.025C10.7784 9.6045 10.367 10.0795 9.84586 10.0795C9.33386 10.0795 8.91329 9.6045 8.91329 9.025C8.91329 8.4455 9.32472 7.9705 9.84586 7.9705C10.367 7.9705 10.7784 8.4455 10.7784 9.025ZM6.50872 7.9705C5.98757 7.9705 5.57615 8.4455 5.57615 9.025C5.57615 9.6045 5.99672 10.0795 6.50872 10.0795C7.02986 10.0795 7.44129 9.6045 7.44129 9.025C7.45043 8.4455 7.02986 7.9705 6.50872 7.9705ZM16.1636 1.957V19C13.8602 16.885 14.5969 17.5851 11.9213 15.0005L12.4059 16.758H2.03786C1.00472 16.758 0.163574 15.884 0.163574 14.801V1.957C0.163574 0.874 1.00472 0 2.03786 0H14.2893C15.3224 0 16.1636 0.874 16.1636 1.957ZM13.5579 10.963C13.5579 7.904 12.2413 5.4245 12.2413 5.4245C10.9247 4.3985 9.67215 4.427 9.67215 4.427L9.54415 4.579C11.0984 5.073 11.8207 5.7855 11.8207 5.7855C9.6489 4.54868 7.09772 4.54846 4.991 5.51C4.65272 5.6715 4.45157 5.7855 4.45157 5.7855C4.45157 5.7855 5.21043 5.035 6.85615 4.541L6.76472 4.427C6.76472 4.427 5.51215 4.3985 4.19557 5.4245C4.19557 5.4245 2.879 7.904 2.879 10.963C2.879 10.963 3.647 12.3405 5.66757 12.407C5.66757 12.407 6.00586 11.9795 6.28015 11.6185C5.119 11.2575 4.68015 10.4975 4.68015 10.4975C4.81465 10.5953 5.03643 10.7221 5.055 10.735C6.59822 11.633 8.79029 11.9272 10.7601 11.0675C11.0801 10.944 11.4367 10.7635 11.8116 10.507C11.8116 10.507 11.3544 11.286 10.1567 11.6375C10.431 11.9985 10.7601 12.407 10.7601 12.407C12.7807 12.3405 13.5579 10.963 13.5579 10.963Z"
+                    fill="white" />
+                </svg>
+                Join us on Discord
+              </button>
+            </div>
+          </section>
+          <div class="cards-section">
+            <article class="card-deploy">
+              <img src="./src/img/Deploy.webp" alt="abstract square" />
+              <h3>Deploy real world applications</h3>
+              <p>
+                Qovery Engine empowers you to deploy complex applications, such
+                as a backend, a frontend, and a database in a very simple way.
+                Servers, networking, security, all is done by the Engine for
+                you.
+              </p>
+              <a href="#">See more</a>
+            </article>
+            <article class="card-resilience">
+              <img src="./src/img/Resiliency-img.webp" alt="abstract figures" />
+              <h3>Resilience is key</h3>
+              <p>
+                Qovery Engine knows when something goes wrong on the deployment
+                of your applications. Qovery Engine is built with resiliency in
+                mind. A transactional engine inspired by what is provided into
+                ACID databases has been developed at the heart of the product to
+                rollback on a consistent and working application version when
+                something goes wrong.
+              </p>
+              <a href="#">See more</a>
+            </article>
+            <article class="card-bestTools">
+              <img
+                src="./src/img/On Top of Tools 1.webp"
+                alt="abstract figures" />
+              <h3>On top of the best tools</h3>
+              <p>
+                Qovery Engine does not reinvent the wheel. It takes advantage of
+                the best tools in the Cloud industry, such as Kubernetes,
+                Terraform, and Helm to manage the deployment of the
+                infrastructure and your applications.Servers, networking,
+                security, all is done by the Engine for you.
+              </p>
+              <a href="#">See more</a>
+            </article>
+            <article class="card-extensible">
+              <img
+                src="./src/img/how does it work.webp"
+                alt="abstract figures" />
+              <h3>Extensible</h3>
+              <p>
+                Qovery Engine is built to be highly extensible. Adding the
+                support of a Cloud provider or a Continuous Integration platform
+                is as simple as implementing a simple programmatic interface.
+              </p>
+              <a href="#">See more</a>
+            </article>
+          </div>
+          <section class="clientLogo-section">
+            <h2>They use Qovery Engine</h2>
+          </section>
         </div>
-        <section class="clientLogo-section">
-          <h2>They use Qovery Engine</h2>
-        </section>
       </main>
       <footer>
         <img src="./src/icons/logo-white.svg" alt="logo white style" />

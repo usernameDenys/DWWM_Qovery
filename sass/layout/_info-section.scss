@@ -1,0 +1,27 @@
+@use "../abstracts/" as a;
+
+.info-section {
+  @include a.flex-align(column, center);
+  h2 {
+    font-family: a.$font-hkGrotesk, sans-serif;
+    font-weight: 800;
+    font-size: a.rem(32, 16);
+    color: a.$secondary;
+    margin-top: a.rem(96, 16);
+  }
+
+  p {
+    max-width: 837px;
+    margin-top: a.rem(24, 16);
+    text-align: center;
+    font-family: a.$font-SFUIText, sans-serif;
+    font-weight: 400;
+    font-size: a.rem(16, 16);
+    line-height: 150%;
+    color: a.$secondary;
+  }
+
+  img {
+    margin-top: a.rem(32, 16);
+  }
+}
