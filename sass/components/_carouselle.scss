@@ -1,0 +1,38 @@
+@use "../abstracts/" as a;
+
+.carousel {
+  width: 100%;
+  overflow: hidden;
+  background: a.$color-light;
+
+  img {
+    width: a.rem(150, 16);
+    height: auto;
+    object-fit: contain;
+  }
+
+  .carousel-track {
+    display: flex;
+    gap: a.rem(100, 16);
+    animation: scroll 100s linear infinite;
+    width: max-content;
+  }
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-25%);
+  }
+  50% {
+    transform: translateX(-50%);
+  }
+  75% {
+    transform: translateX(-75%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}

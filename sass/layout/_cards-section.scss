@@ -1,0 +1,9 @@
+@use "../abstracts/" as a;
+
+.cards-section {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-top: a.rem(100, 16);
+}

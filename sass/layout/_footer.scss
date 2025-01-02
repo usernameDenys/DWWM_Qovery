@@ -1,0 +1,88 @@
+@use "../abstracts/" as a;
+
+footer {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin-top: a.rem(100, 16);
+  padding-top: 120px;
+  position: relative;
+  font-family: a.$font-SFUIText, sans-serif;
+  font-weight: 400;
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100px;
+    background-color: a.$primary;
+  }
+  .footer-container {
+    @include a.grid(6, 6, 0px);
+    max-width: 1170px;
+    width: 100%;
+    img {
+      grid-area: 1 / 1 / 2 / 7;
+      margin-bottom: a.rem(65, 16);
+    }
+    .social-section {
+      grid-area: 2 / 1 / 6 / 3;
+      margin-right: a.rem(100, 16);
+
+      p {
+        font-size: a.rem(14, 16);
+        line-height: 150%;
+        color: a.$secondary;
+      }
+
+      .social-container {
+        display: flex;
+        justify-content: space-between;
+        max-width: 60%;
+        margin-top: a.rem(24, 16);
+        margin-bottom: a.rem(24, 16);
+        a {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          border: 1px solid #333;
+          border-radius: a.rem(3, 16);
+          padding: 3px;
+        }
+      }
+    }
+
+    .links-section {
+      grid-area: 2 / 3 / 6 / 7;
+      display: flex;
+      justify-content: space-between;
+      font-family: a.$font-hkGrotesk, sans-serif;
+      
+      h4 {
+        color: #000;
+        font-weight: 800;
+      }
+      li {
+        margin-top: a.rem(14, 16);
+      }
+      a {
+        color: a.$secondary;
+      }
+    }
+
+    .footer-bottom {
+      grid-area: 6 / 1 / 7 / 7;
+      @include a.flex-justify(row, space-around);
+      font-size: a.rem(14, 16);
+      color: a.$secondary;
+      text-transform: uppercase;
+      border-top: 1px solid a.$secondary;
+      padding-top: a.rem(24, 16);
+      padding-bottom: a.rem(24, 16);
+      a {
+        color: a.$highlight-color;
+      }
+    }
+  }
+}

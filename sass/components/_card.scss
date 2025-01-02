@@ -1,0 +1,36 @@
+@use "../abstracts/" as a;
+
+.card {
+  @include a.flex-align(column, start);
+  max-width: 428px;
+  margin-top: a.rem(65, 16);
+
+  h3 {
+    font-family: a.$font-hkGrotesk, sans-serif;
+    font-weight: 700;
+    font-size: a.rem(24, 16);
+    color: a.$secondary;
+    margin-top: a.rem(24, 16);
+  }
+
+  p {
+    font-family: a.$font-SFUIText, sans-serif;
+    font-weight: 400;
+    font-size: a.rem(16, 16);
+    line-height: 150%;
+    color: a.$secondary;
+    margin-top: a.rem(24, 16);
+  }
+
+  a {
+    font-family: a.$font-SFUIText, sans-serif;
+    font-weight: 400;
+    font-size: a.rem(12, 16);
+    line-height: 130%;
+    color: a.$highlight-color;
+    margin-top: a.rem(12, 16);
+    text-transform: uppercase;
+  }
+
+}
+

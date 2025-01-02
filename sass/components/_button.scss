@@ -6,43 +6,43 @@
   align-items: flex-start;
   gap: a.rem(24, 16);
   grid-area: 5 / 1 / 5 / 2;
+}
+button {
+  @include a.unbuttonize();
+  font-family: a.$font-SFUIText, sans-serif;
+  font-weight: 400;
+  font-size: a.rem(14, 16);
+  color: a.$text-color-light;
+  text-align: center;
+  height: a.rem(39, 16);
+  padding-left: a.rem(16, 16);
+  padding-right: a.rem(16, 16);
+  border-radius: a.rem(3, 16);
+  width: 100%;
+  cursor: pointer;
 
-  button {
-    @include a.unbuttonize();
-    font-family: a.$font-SFUIText, sans-serif;
-    font-weight: 400;
-    font-size: a.rem(14, 16);
-    color: a.$text-color-light;
-    text-align: center;
-    height: a.rem(39, 16);
-    padding-left: a.rem(16, 16);
-    padding-right: a.rem(16, 16);
-    border-radius: a.rem(3, 16);
-    width: 100%;
-    cursor: pointer;
-
-    &.github-btn {
-      background-color: a.$secondary;
-      transition: transform 500ms ease;
-      svg {
-        display: inline-block;
-        vertical-align: middle;
-      }
-      &:hover {
-        transform: scale(1.1);
-      }
+  &.github-btn {
+    background-color: a.$secondary;
+    transition: transform 500ms ease;
+    svg {
+      display: inline-block;
+      vertical-align: middle;
     }
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
 
-    &.discord-btn {
-      background-color: a.$btn-callToAction;
-      transition: transform 500ms ease;
-      svg {
-        display: inline-block;
-        vertical-align: middle;
-      }
-      &:hover,:active {
-        transform: scale(1.1);
-      }
+  &.discord-btn {
+    background-color: a.$btn-callToAction;
+    transition: transform 500ms ease;
+    svg {
+      display: inline-block;
+      vertical-align: middle;
+    }
+    &:hover,
+    :active {
+      transform: scale(1.1);
     }
   }
 }

@@ -6,14 +6,8 @@ header {
   @include a.flex-align(column, center);
   background-color: a.$primary;
 
-  .wrapper {
-    width: 98%;
-    max-width: 1440px;
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(6, 1fr);
-    grid-column-gap: 0px;
-    grid-row-gap: 0px;
+  .header-wrapper {
+    @include a.grid(6, 2, 0px);
   }
 
   nav {
@@ -34,10 +28,6 @@ header {
         font-weight: 800;
         font-size: a.rem(46, 16);
         color: a.$text-color-light;
-      }
-
-      iframe {
-        text-align: left;
       }
     }
 
