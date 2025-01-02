@@ -11,6 +11,9 @@
       rel="shortcut icon"
       href="src/icons/favicon.svg"
       type="image/x-icon" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
     <link rel="stylesheet" href="sass/index.scss" />
     <title>
       Qovery - DevOps Automation Platform - Enable Developers Self-Service
@@ -19,19 +22,19 @@
   <body>
     <div class="container">
       <header>
-        <div class="wrapper">
+        <div class="header-wrapper">
           <nav>
-            <img
-              src="./src/icons/Logotype.svg"
-              alt="Logo of the company Quovery" />
+            <a href="#">
+              <img
+                src="./src/icons/Logotype.svg"
+                alt="Logo of the company Quovery"
+            /></a>
           </nav>
           <div class="hero-info">
             <div class="title-container">
               <h1>Qovery Engine</h1>
               <iframe
                 src="https://ghbtns.com/github-btn.html?user=qovery&repo=Replibyte&type=star&count=true&size=large"
-                frameborder="0"
-                scrolling="1"
                 width="170"
                 height="30"
                 title="GitHub"></iframe>
@@ -82,7 +85,7 @@
         </div>
       </header>
       <main>
-        <div class="wrapper">
+        <div class="main-wrapper">
           <section class="info-section">
             <h2>How does it work?</h2>
             <p>
@@ -92,7 +95,7 @@
               of Terraform, Helm, Kubectl, Docker to manage resources.
             </p>
             <img
-              src="./src/img/how does it work.webp"
+              src="./src/img/how_does_it_work.webp"
               alt="a scheme that describes the interaction of services" />
           </section>
           <section class="usage-section">
@@ -102,7 +105,37 @@
                 Initialize EKS (AWS Kubernetes) and ECR (AWS container registry)
                 on AWS
               </p>
-              <div class="code"></div>
+              <span class="rust-btn">RUST</span>
+              <div class="code">
+                <pre>
+                  <code class="language-rust">
+                  
+                  let engine = Engine::new(
+                      context, // parameters
+                      local_docker, // initialize Docker as a Build Platform
+                      ecr, // initialize Elastic Container Registry
+                      aws, // initialize AWS account
+                      cloudflare, // initialize Cloudflare as DNS Nameservers
+                  );
+                  
+                  let session = match engine.session() {
+                      Ok(session) => session, // get the session
+                      Err(config_error) => panic!("configuration error {:?}", config_error),
+                  };
+                  
+                  let mut tx = session.transaction();
+                  
+                  // create EKS (AWS managed Kubernetes cluster)
+                  tx.create_kubernetes(&eks);
+                  
+                  // create the infrastructure and wait for the result
+                  match tx.commit() {
+                      TransactionResult::Ok => println!("OK"),
+                      TransactionResult::Rollback(commit_err) => println!("ERROR but rollback OK"),
+                      TransactionResult::UnrecoverableError(commit_err, rollback_err) => println!("FATAL ERROR"),
+                  };
+                  </code></pre>
+              </div>
             </div>
             <div class="usage-btn-container">
               <button class="github-btn">
@@ -134,48 +167,57 @@
             </div>
           </section>
           <div class="cards-section">
-            <article class="card-deploy">
+            <article class="card-deploy card">
               <img src="./src/img/Deploy.webp" alt="abstract square" />
               <h3>Deploy real world applications</h3>
               <p>
                 Qovery Engine empowers you to deploy complex applications, such
                 as a backend, a frontend, and a database in a very simple way.
+              </p>
+              <p>
                 Servers, networking, security, all is done by the Engine for
                 you.
               </p>
               <a href="#">See more</a>
             </article>
-            <article class="card-resilience">
+            <article class="card-resilience card">
               <img src="./src/img/Resiliency-img.webp" alt="abstract figures" />
               <h3>Resilience is key</h3>
               <p>
                 Qovery Engine knows when something goes wrong on the deployment
                 of your applications. Qovery Engine is built with resiliency in
-                mind. A transactional engine inspired by what is provided into
-                ACID databases has been developed at the heart of the product to
+                mind.
+              </p>
+              <p>
+                A transactional engine inspired by what is provided into ACID
+                databases has been developed at the heart of the product to
                 rollback on a consistent and working application version when
                 something goes wrong.
               </p>
               <a href="#">See more</a>
             </article>
-            <article class="card-bestTools">
+            <article class="card-bestTools card">
               <img
-                src="./src/img/On Top of Tools 1.webp"
+                src="./src/img/On_Top_of_Tools_1.webp"
                 alt="abstract figures" />
               <h3>On top of the best tools</h3>
               <p>
                 Qovery Engine does not reinvent the wheel. It takes advantage of
                 the best tools in the Cloud industry, such as Kubernetes,
                 Terraform, and Helm to manage the deployment of the
-                infrastructure and your applications.Servers, networking,
-                security, all is done by the Engine for you.
+                infrastructure and your applications.
+              </p>
+              <p>
+                Servers, networking, security, all is done by the Engine for
+                you.
               </p>
               <a href="#">See more</a>
             </article>
-            <article class="card-extensible">
+            <article class="card-extensible card">
               <img
-                src="./src/img/how does it work.webp"
-                alt="abstract figures" />
+                src="./src/img/how_does_it_work.webp"
+                alt="abstract figures"
+                width="422" />
               <h3>Extensible</h3>
               <p>
                 Qovery Engine is built to be highly extensible. Adding the
@@ -187,169 +229,229 @@
           </div>
           <section class="clientLogo-section">
             <h2>They use Qovery Engine</h2>
+            <div class="carousel">
+              <div class="carousel-track">
+                <img src="./src/icons/partners/bytebeam.svg" alt="Partner 1" />
+                <img src="./src/icons/partners/common.svg" alt="Partner 2" />
+                <img
+                  src="./src/icons/partners/creative-juice.svg"
+                  alt="Partner 3" />
+                <img src="./src/icons/partners/Elevo.svg" alt="Partner 4" />
+                <img
+                  src="./src/icons/partners/Eurovision.svg"
+                  alt="Partner 5" />
+                <img src="./src/icons/partners/Flowbank.svg" alt="Partner 6" />
+                <img
+                  src="./src/icons/partners/Kirkpatrickprice.svg"
+                  alt="Partner 7" />
+                <img
+                  src="./src/icons/partners/my-muscle-chef.svg"
+                  alt="Partner 8" />
+                <img
+                  src="./src/icons/partners/ninetailed.svg"
+                  alt="Partner 9" />
+                <img
+                  src="./src/icons/partners/non-ungible-labs.svg"
+                  alt="Partner 10" />
+                <img src="./src/icons/partners/pantera.svg" alt="Partner 11" />
+                <img
+                  src="./src/icons/partners/papershift-logo.svg"
+                  alt="Partner 12" />
+                <img src="./src/icons/partners/restack.svg" alt="Partner 13" />
+                <img src="./src/icons/partners/routine.svg" alt="Partner 14" />
+                <img src="./src/icons/partners/Tint.svg" alt="Partner 15" />
+                <img src="./src/icons/partners/bytebeam.svg" alt="Partner 1" />
+                <img src="./src/icons/partners/common.svg" alt="Partner 2" />
+                <img
+                  src="./src/icons/partners/creative-juice.svg"
+                  alt="Partner 3" />
+                <img src="./src/icons/partners/Elevo.svg" alt="Partner 4" />
+                <img
+                  src="./src/icons/partners/Eurovision.svg"
+                  alt="Partner 5" />
+                <img src="./src/icons/partners/Flowbank.svg" alt="Partner 6" />
+                <img
+                  src="./src/icons/partners/Kirkpatrickprice.svg"
+                  alt="Partner 7" />
+                <img
+                  src="./src/icons/partners/my-muscle-chef.svg"
+                  alt="Partner 8" />
+                <img
+                  src="./src/icons/partners/ninetailed.svg"
+                  alt="Partner 9" />
+                <img
+                  src="./src/icons/partners/non-ungible-labs.svg"
+                  alt="Partner 10" />
+                <img src="./src/icons/partners/pantera.svg" alt="Partner 11" />
+                <img
+                  src="./src/icons/partners/papershift-logo.svg"
+                  alt="Partner 12" />
+                <img src="./src/icons/partners/restack.svg" alt="Partner 13" />
+                <img src="./src/icons/partners/routine.svg" alt="Partner 14" />
+                <img src="./src/icons/partners/Tint.svg" alt="Partner 15" />
+              </div>
+            </div>
           </section>
         </div>
       </main>
       <footer>
-        <img src="./src/icons/logo-white.svg" alt="logo white style" />
-        <div class="social-section">
-          <p>
-            Quovery combines the power of Kubernetes, the reliability of AWS,
-            and the simplicity of Heroku to deploy your apps.
-          </p>
-          <div class="social-container">
-            <a class="social-link" href="#">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                fill="none"
-                viewBox="0 0 24 24">
-                <path
-                  fill="#fff"
-                  d="M12.001 0C5.371-.003 0 5.511 0 12.317c0 5.381 3.36 9.956 8.038 11.636.63.163.534-.297.534-.611v-2.135c-3.638.438-3.786-2.035-4.03-2.448-.493-.865-1.66-1.085-1.311-1.498.828-.438 1.673.11 2.652 1.594.708 1.077 2.088.895 2.788.716.153-.647.48-1.225.93-1.674-3.77-.694-5.34-3.057-5.34-5.867 0-1.363.437-2.616 1.295-3.627-.547-1.666.05-3.093.131-3.305 1.558-.143 3.177 1.146 3.303 1.248.885-.245 1.896-.375 3.027-.375 1.137 0 2.15.135 3.044.383.303-.237 1.804-1.344 3.252-1.21.078.213.662 1.607.148 3.25.868 1.014 1.31 2.278 1.31 3.645 0 2.814-1.581 5.18-5.362 5.863.324.327.581.717.756 1.148.176.43.266.892.266 1.358v3.099c.021.248 0 .493.402.493C20.58 22.356 24 17.748 24 12.32 24 5.51 18.627 0 12.001 0z"></path>
-              </svg>
-            </a>
-            <a class="social-link" href="#">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                viewBox="0 0 24 24">
-                <path
-                  d="M21.602 0H2.398A2.404 2.404 0 000 2.398v19.204A2.404 2.404 0 002.398 24h19.204A2.404 2.404 0 0024 21.602V2.398A2.404 2.404 0 0021.602 0zM7.199 20.398H3.602V9.602h3.597zM5.4 7.558a2.15 2.15 0 01-2.16-2.16c0-1.199.96-2.16 2.16-2.16 1.203 0 2.16.961 2.16 2.16 0 1.204-.957 2.16-2.16 2.16zm15 12.84H16.8V14.04c0-.96-.84-1.8-1.801-1.8-.96 0-1.8.84-1.8 1.8v6.36H9.601V9.601h3.597v1.437c.602-.96 1.922-1.68 3-1.68 2.281 0 4.2 1.922 4.2 4.2zm0 0"></path>
-              </svg>
-            </a>
-            <a class="social-link" href="#">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                viewBox="0 0 24 24">
-                <g
+        <div class="footer-container">
+          <img src="./src/icons/logo-white.svg" alt="logo white style" />
+          <div class="social-section">
+            <p>
+              Quovery combines the power of Kubernetes, the reliability of AWS,
+              and the simplicity of Heroku to deploy your apps.
+            </p>
+            <div class="social-container">
+              <a class="social-link" href="#">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
                   fill="none"
-                  fill-rule="evenodd"
-                  stroke="none"
-                  stroke-width="1">
+                  viewBox="0 0 24 24">
                   <path
-                    fill="#30364D"
-                    d="M22 5.897a8.293 8.293 0 01-2.357.634 4.06 4.06 0 001.804-2.233c-.791.461-1.67.798-2.604.98A4.136 4.136 0 0015.848 4c-2.266 0-4.106 1.81-4.106 4.04 0 .318.036.625.108.92a11.693 11.693 0 01-8.457-4.22 3.96 3.96 0 00-.556 2.031c0 1.4.722 2.637 1.825 3.361a4.127 4.127 0 01-1.858-.506v.051c0 1.958 1.413 3.592 3.291 3.96a4.158 4.158 0 01-1.08.144 4.04 4.04 0 01-.772-.073c.52 1.605 2.038 2.771 3.831 2.806a8.316 8.316 0 01-5.094 1.727 8.23 8.23 0 01-.98-.058A11.736 11.736 0 008.29 20c7.548 0 11.676-6.155 11.676-11.492 0-.173-.007-.35-.014-.523A8.327 8.327 0 0022 5.897z"></path>
-                </g>
-              </svg>
-            </a>
-            <a class="social-link" href="#">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="71"
-                height="55"
-                fill="none"
-                viewBox="0 0 71 55">
-                <g clip-path="url(#clip0)">
+                    fill="#000"
+                    d="M12.001 0C5.371-.003 0 5.511 0 12.317c0 5.381 3.36 9.956 8.038 11.636.63.163.534-.297.534-.611v-2.135c-3.638.438-3.786-2.035-4.03-2.448-.493-.865-1.66-1.085-1.311-1.498.828-.438 1.673.11 2.652 1.594.708 1.077 2.088.895 2.788.716.153-.647.48-1.225.93-1.674-3.77-.694-5.34-3.057-5.34-5.867 0-1.363.437-2.616 1.295-3.627-.547-1.666.05-3.093.131-3.305 1.558-.143 3.177 1.146 3.303 1.248.885-.245 1.896-.375 3.027-.375 1.137 0 2.15.135 3.044.383.303-.237 1.804-1.344 3.252-1.21.078.213.662 1.607.148 3.25.868 1.014 1.31 2.278 1.31 3.645 0 2.814-1.581 5.18-5.362 5.863.324.327.581.717.756 1.148.176.43.266.892.266 1.358v3.099c.021.248 0 .493.402.493C20.58 22.356 24 17.748 24 12.32 24 5.51 18.627 0 12.001 0z"></path>
+                </svg>
+              </a>
+              <a class="social-link" href="#">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24">
                   <path
-                    fill="#23272A"
-                    d="M60.105 4.898A58.55 58.55 0 0045.653.415a.22.22 0 00-.233.11 40.784 40.784 0 00-1.8 3.697c-5.456-.817-10.886-.817-16.23 0-.485-1.164-1.201-2.587-1.828-3.697a.228.228 0 00-.233-.11 58.386 58.386 0 00-14.451 4.483.207.207 0 00-.095.082C1.578 18.73-.944 32.144.293 45.39a.244.244 0 00.093.167c6.073 4.46 11.955 7.167 17.729 8.962a.23.23 0 00.249-.082 42.08 42.08 0 003.627-5.9.225.225 0 00-.123-.312 38.772 38.772 0 01-5.539-2.64.228.228 0 01-.022-.378c.372-.279.744-.569 1.1-.862a.22.22 0 01.23-.03c11.619 5.304 24.198 5.304 35.68 0a.219.219 0 01.233.027c.356.293.728.586 1.103.865a.228.228 0 01-.02.378 36.384 36.384 0 01-5.54 2.637.227.227 0 00-.121.315 47.249 47.249 0 003.624 5.897.225.225 0 00.249.084c5.801-1.794 11.684-4.502 17.757-8.961a.228.228 0 00.092-.164c1.48-15.315-2.48-28.618-10.497-40.412a.18.18 0 00-.093-.084zm-36.38 32.427c-3.497 0-6.38-3.211-6.38-7.156 0-3.944 2.827-7.156 6.38-7.156 3.583 0 6.438 3.24 6.382 7.156 0 3.945-2.827 7.156-6.381 7.156zm23.593 0c-3.498 0-6.38-3.211-6.38-7.156 0-3.944 2.826-7.156 6.38-7.156 3.582 0 6.437 3.24 6.38 7.156 0 3.945-2.798 7.156-6.38 7.156z"></path>
-                </g>
-                <defs>
-                  <clipPath id="clip0">
-                    <path fill="#fff" d="M0 0H71V55H0z"></path>
-                  </clipPath>
-                </defs>
-              </svg>
-            </a>
+                    d="M21.602 0H2.398A2.404 2.404 0 000 2.398v19.204A2.404 2.404 0 002.398 24h19.204A2.404 2.404 0 0024 21.602V2.398A2.404 2.404 0 0021.602 0zM7.199 20.398H3.602V9.602h3.597zM5.4 7.558a2.15 2.15 0 01-2.16-2.16c0-1.199.96-2.16 2.16-2.16 1.203 0 2.16.961 2.16 2.16 0 1.204-.957 2.16-2.16 2.16zm15 12.84H16.8V14.04c0-.96-.84-1.8-1.801-1.8-.96 0-1.8.84-1.8 1.8v6.36H9.601V9.601h3.597v1.437c.602-.96 1.922-1.68 3-1.68 2.281 0 4.2 1.922 4.2 4.2zm0 0"></path>
+                </svg>
+              </a>
+              <a class="social-link" href="#">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24">
+                  <g
+                    fill="none"
+                    fill-rule="evenodd"
+                    stroke="none"
+                    stroke-width="1">
+                    <path
+                      fill="#30364D"
+                      d="M22 5.897a8.293 8.293 0 01-2.357.634 4.06 4.06 0 001.804-2.233c-.791.461-1.67.798-2.604.98A4.136 4.136 0 0015.848 4c-2.266 0-4.106 1.81-4.106 4.04 0 .318.036.625.108.92a11.693 11.693 0 01-8.457-4.22 3.96 3.96 0 00-.556 2.031c0 1.4.722 2.637 1.825 3.361a4.127 4.127 0 01-1.858-.506v.051c0 1.958 1.413 3.592 3.291 3.96a4.158 4.158 0 01-1.08.144 4.04 4.04 0 01-.772-.073c.52 1.605 2.038 2.771 3.831 2.806a8.316 8.316 0 01-5.094 1.727 8.23 8.23 0 01-.98-.058A11.736 11.736 0 008.29 20c7.548 0 11.676-6.155 11.676-11.492 0-.173-.007-.35-.014-.523A8.327 8.327 0 0022 5.897z"></path>
+                  </g>
+                </svg>
+              </a>
+              <a class="social-link" href="#">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  fill="none"
+                  viewBox="0 0 71 55">
+                  <g clip-path="url(#clip0)">
+                    <path
+                      fill="#23272A"
+                      d="M60.105 4.898A58.55 58.55 0 0045.653.415a.22.22 0 00-.233.11 40.784 40.784 0 00-1.8 3.697c-5.456-.817-10.886-.817-16.23 0-.485-1.164-1.201-2.587-1.828-3.697a.228.228 0 00-.233-.11 58.386 58.386 0 00-14.451 4.483.207.207 0 00-.095.082C1.578 18.73-.944 32.144.293 45.39a.244.244 0 00.093.167c6.073 4.46 11.955 7.167 17.729 8.962a.23.23 0 00.249-.082 42.08 42.08 0 003.627-5.9.225.225 0 00-.123-.312 38.772 38.772 0 01-5.539-2.64.228.228 0 01-.022-.378c.372-.279.744-.569 1.1-.862a.22.22 0 01.23-.03c11.619 5.304 24.198 5.304 35.68 0a.219.219 0 01.233.027c.356.293.728.586 1.103.865a.228.228 0 01-.02.378 36.384 36.384 0 01-5.54 2.637.227.227 0 00-.121.315 47.249 47.249 0 003.624 5.897.225.225 0 00.249.084c5.801-1.794 11.684-4.502 17.757-8.961a.228.228 0 00.092-.164c1.48-15.315-2.48-28.618-10.497-40.412a.18.18 0 00-.093-.084zm-36.38 32.427c-3.497 0-6.38-3.211-6.38-7.156 0-3.944 2.827-7.156 6.38-7.156 3.583 0 6.438 3.24 6.382 7.156 0 3.945-2.827 7.156-6.381 7.156zm23.593 0c-3.498 0-6.38-3.211-6.38-7.156 0-3.944 2.826-7.156 6.38-7.156 3.582 0 6.437 3.24 6.38 7.156 0 3.945-2.798 7.156-6.38 7.156z"></path>
+                  </g>
+                  <defs>
+                    <clipPath id="clip0">
+                      <path fill="#fff" d="M0 0H71V55H0z"></path>
+                    </clipPath>
+                  </defs>
+                </svg>
+              </a>
+            </div>
+            <iframe
+              src="https://ghbtns.com/github-btn.html?user=qovery&repo=Replibyte&type=star&count=true&size=large"
+              width="170"
+              height="30"
+              title="GitHub"></iframe>
           </div>
-          <iframe
-            src="https://ghbtns.com/github-btn.html?user=qovery&repo=Replibyte&type=star&count=true&size=large"
-            frameborder="0"
-            scrolling="0"
-            width="170"
-            height="30"
-            title="GitHub"></iframe>
-        </div>
-        <nav class="links-section">
-          <section class="link-list">
-            <h4>Ressources</h4>
-            <ul>
-              <li>
-                <a href="#">Documentation</a>
-              </li>
-              <li>
-                <a href="#">Guides</a>
-              </li>
-              <li>
-                <a href="#">Tutorials</a>
-              </li>
-              <li>
-                <a href="#">Pricing</a>
-              </li>
-              <li>
-                <a href="#">API</a>
-              </li>
-              <li>
-                <a href="#">Github</a>
-              </li>
-            </ul>
-          </section>
-          <section class="link-list">
-            <h4>Community</h4>
-            <ul>
-              <li>
-                <a href="#">Discord</a>
-              </li>
-              <li>
-                <a href="#">Forum</a>
-              </li>
-              <li>
-                <a href="#">Community call</a>
-              </li>
-              <li>
-                <a href="#">Goodies</a>
-              </li>
-              <li>
-                <a href="#">Roadmap</a>
-              </li>
-            </ul>
-          </section>
-          <section class="link-list">
-            <h4>Quovery vs Other</h4>
-            <ul>
-              <li>
-                <a href="#">Heroku</a>
-              </li>
-              <li>
-                <a href="#">Netify</a>
-              </li>
-              <li>
-                <a href="#">Terraform</a>
-              </li>
-            </ul>
-          </section>
-          <section class="link-list">
-            <h4>Company</h4>
-            <ul>
-              <li>
-                <a href="#">Blog</a>
-              </li>
-              <li>
-                <a href="#">Jobs</a>
-              </li>
-              <li>
-                <a href="#">Team</a>
-              </li>
-              <li>
-                <a href="#">Investors</a>
-              </li>
-              <li>
-                <a href="#">Terms</a>
-              </li>
-              <li>
-                <a href="#">Contact</a>
-              </li>
-            </ul>
-          </section>
-        </nav>
-        <div class="footer-bottom">
-          <div class="ft-tertiary ft-up">
-            <p>© 2024 Designed by Qovery</p>
+          <nav class="links-section">
+            <section class="link-list">
+              <h4>Ressources</h4>
+              <ul>
+                <li>
+                  <a href="#">Documentation</a>
+                </li>
+                <li>
+                  <a href="#">Guides</a>
+                </li>
+                <li>
+                  <a href="#">Tutorials</a>
+                </li>
+                <li>
+                  <a href="#">Pricing</a>
+                </li>
+                <li>
+                  <a href="#">API</a>
+                </li>
+                <li>
+                  <a href="#">Github</a>
+                </li>
+              </ul>
+            </section>
+            <section class="link-list">
+              <h4>Community</h4>
+              <ul>
+                <li>
+                  <a href="#">Discord</a>
+                </li>
+                <li>
+                  <a href="#">Forum</a>
+                </li>
+                <li>
+                  <a href="#">Community call</a>
+                </li>
+                <li>
+                  <a href="#">Goodies</a>
+                </li>
+                <li>
+                  <a href="#">Roadmap</a>
+                </li>
+              </ul>
+            </section>
+            <section class="link-list">
+              <h4>Quovery vs Other</h4>
+              <ul>
+                <li>
+                  <a href="#">Heroku</a>
+                </li>
+                <li>
+                  <a href="#">Netify</a>
+                </li>
+                <li>
+                  <a href="#">Terraform</a>
+                </li>
+              </ul>
+            </section>
+            <section class="link-list">
+              <h4>Company</h4>
+              <ul>
+                <li>
+                  <a href="#">Blog</a>
+                </li>
+                <li>
+                  <a href="#">Jobs</a>
+                </li>
+                <li>
+                  <a href="#">Team</a>
+                </li>
+                <li>
+                  <a href="#">Investors</a>
+                </li>
+                <li>
+                  <a href="#">Terms</a>
+                </li>
+                <li>
+                  <a href="#">Contact</a>
+                </li>
+              </ul>
+            </section>
+          </nav>
+          <div class="footer-bottom">
+            <p>© 2024 Denys Holenko</p>
             <p>
               Backed by
               <a href="#" target="_blank">Techstars</a>
@@ -365,5 +467,7 @@
         </div>
       </footer>
     </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+    <script src="highlight.js"></script>
   </body>
 </html>

@@ -1,0 +1,61 @@
+@use "../abstracts/" as a;
+
+.usage-section {
+  @include a.flex-align(column, center);
+  .usage-info-container {
+    @include a.flex-align(column, center);
+    margin-top: a.rem(128, 16);
+    background: no-repeat url("../src/img/bg.svg");
+    background-position: 50% 10%;
+    max-width: 905px;
+    width: 100%;
+
+    h2 {
+      font-family: a.$font-hkGrotesk, sans-serif;
+      font-weight: 800;
+      font-size: a.rem(32, 16);
+      color: a.$secondary;
+      margin-top: a.rem(6, 16);
+    }
+
+    p {
+      margin-top: a.rem(17, 16);
+      text-align: center;
+      font-family: a.$font-SFUIText, sans-serif;
+      font-weight: 400;
+      font-size: a.rem(16, 16);
+      color: a.$secondary;
+    }
+
+    .usage-info-container {
+      position: absolute;
+    }
+    .rust-btn {
+      position: relative;
+      top: a.rem(220, 16);
+      left: a.rem(-330, 16);
+      font-family: a.$font-SFUIText, sans-serif;
+      font-size: a.rem(12, 16);
+      line-height: 150%;
+      padding: 4px 8px;
+      border-radius: a.rem(3, 16);
+      background-color: a.$highlight-color;
+      color: a.$color-light;
+      z-index: 2;
+    }
+
+    .language-rust {
+      margin-top: a.rem(105, 16);
+      padding-top: a.rem(100, 16);
+      font-size: a.rem(15, 16);
+      text-align: left;
+    }
+  }
+  .usage-btn-container {
+    @include a.flex-align(row, center);
+    gap: a.rem(24, 16);
+    max-width: 400px;
+    width: 100%;
+    margin-top: a.rem(48, 16);
+  }
+}

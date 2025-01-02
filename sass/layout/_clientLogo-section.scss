@@ -1,0 +1,14 @@
+@use "../abstracts/" as a;
+
+.clientLogo-section {
+    @include a.flex-align(column, center);
+
+    h2 {
+        font-family: a.$font-hkGrotesk, sans-serif;
+        font-weight: 800;
+        font-size: a.rem(32, 16);
+        color: a.$secondary;
+        margin-top: a.rem(167, 16);
+        margin-bottom: a.rem(80, 16);
+    }
+}
