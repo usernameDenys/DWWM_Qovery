@@ -2,15 +2,22 @@
   "name": "dwwm_qovery",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "homepage": "https://usernameDenys.github.io/DWWM_Qovery",
   "scripts": {
     "dev": "parcel index.html",
-    "build": "parcel build/index.html"
+    "build": "parcel build index.html",
+    "deploy": "gh-pages -d dist"
   },
   "author": "Denys Holenko",
   "license": "ISC",
   "devDependencies": {
+    "@parcel/transformer-sass": "^2.13.3",
+    "gh-pages": "^6.3.0",
     "parcel-bundler": "^1.12.5",
     "sass": "^1.83.0"
+  },
+  "dependencies": {
+    "htmlnano": "^2.1.1",
+    "parcel": "^2.13.3"
   }
 }
