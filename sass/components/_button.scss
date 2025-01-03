@@ -5,7 +5,7 @@
   @include a.flex-justify(row, flex-start);
   align-items: flex-start;
   gap: a.rem(24, 16);
-  grid-area: 5 / 1 / 5 / 2;
+  margin-top: a.rem(48, 16)
 }
 button {
   @include a.unbuttonize();

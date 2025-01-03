@@ -1,4 +1,4 @@
-# My Landing Page Clone
+# Qovery Landing Page Clone
 
 This repository contains a clone of a landing page, created for **educational purposes** only. The purpose of this project is to practice and demonstrate front-end development skills, including HTML, SCSS, CSS, and JavaScript.
 

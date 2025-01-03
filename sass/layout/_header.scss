@@ -6,55 +6,56 @@ header {
   @include a.flex-align(column, center);
   background-color: a.$primary;
 
-  .header-wrapper {
-    @include a.grid(6, 2, 0px);
-  }
-
   nav {
-    grid-area: 1 / 1 / 2 / 3;
-    @include a.flex-align(row, flex-start);
-    align-items: center;
+    @include a.flex-justify(row, flex-start);
+    max-width: 1124px;
     width: 100%;
+    margin-top: a.rem(10, 16);
   }
-  .hero-info {
-    grid-area: 3 / 1 / 5 / 2;
 
-    .title-container {
-      @include a.flex-align(row, center);
-      gap: a.rem(24, 16);
+  .header-wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 
-      h1 {
+    .hero-info {
+      .title-container {
+        @include a.flex-align(row, center);
+        gap: a.rem(24, 16);
+        margin-top: a.rem(124, 16);
+
+        h1 {
+          font-family: a.$font-hkGrotesk, sans-serif;
+          font-weight: 800;
+          font-size: a.rem(46, 16);
+          color: a.$text-color-light;
+        }
+      }
+
+      h2 {
         font-family: a.$font-hkGrotesk, sans-serif;
-        font-weight: 800;
-        font-size: a.rem(46, 16);
+        font-weight: 600;
+        font-size: a.rem(25, 16);
+        color: a.$color-light;
+        margin-top: a.rem(24, 16);
+        text-align: left;
+        max-width: 480px;
+      }
+
+      p {
+        font-family: a.$font-SFUIText, sans-serif;
+        font-weight: 400;
+        font-size: a.rem(16, 16);
+        text-align: left;
         color: a.$text-color-light;
+        margin-top: a.rem(24, 16);
+        max-width: 473px;
+        padding-bottom: 0;
       }
     }
 
-    h2 {
-      font-family: a.$font-hkGrotesk, sans-serif;
-      font-weight: 600;
-      font-size: a.rem(25, 16);
-      color: a.$color-light;
-      margin-top: a.rem(24, 16);
-      text-align: left;
-      max-width: 480px;
+    .hero-img {
+      text-align: center;
     }
-
-    p {
-      font-family: a.$font-SFUIText, sans-serif;
-      font-weight: 400;
-      font-size: a.rem(16, 16);
-      text-align: left;
-      color: a.$text-color-light;
-      margin-top: a.rem(24, 16);
-      max-width: 473px;
-      padding-bottom: 0;
-    }
-  }
-
-  .hero-img {
-    grid-area: 2 / 2 / 7 / 3;
-    text-align: center;
   }
 }
