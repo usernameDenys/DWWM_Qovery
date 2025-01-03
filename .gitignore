@@ -17,7 +17,7 @@ logs/
 *.log
 
 # Ignore build files
-dist/
+
 .parcel-cache
 *.out
 
